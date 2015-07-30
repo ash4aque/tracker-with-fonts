@@ -1,0 +1,176 @@
+.tracker-box {
+    margin: auto 0;
+    padding-top: 20px;
+    width: 90%;
+}
+.tracker {
+    margin: 60px;
+}
+
+.tracker .tracker-bar {
+    background: none repeat scroll 0 0 #dddddd;
+    height: 1px;
+    left: -40px;
+    position: relative;
+    top: 60px;
+    width: 120%;
+}
+
+.tracker .footprints {
+    margin: 10px 0 0;
+    padding: 0;
+    position: relative;
+}
+
+.tracker .footprint {
+    position: absolute;
+}
+
+.tracker .infograph-point {
+
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    height: 70px;
+    margin-bottom: 0;
+    width: 90px;
+
+}
+
+.infograph-label {
+    color: #888;
+    display: block;
+    font-size: 14px;
+    left: 0;
+    line-height: 1.2;
+    position: relative;
+    text-align: center;
+    top: 20px;
+    width: 100px;
+}
+
+.infograph-last-node-label {
+    display: inline-flex;
+    width: 130px;
+}
+
+.infograph-label.part1 {
+    border-right: 1px solid;
+    width: 50%;
+}
+
+.infograph-label.part2 {
+    border-left: 1px solid;
+    width: 50%;
+}
+
+.icon-green {
+  color: #86b918;
+  font-size: 60px;
+}
+
+.icon-grey {
+  color: #cacfd2;
+  font-size: 60px;
+}
+
+.icon-red {
+  color: red;
+    font-size: 30px;
+    left: -125px;
+    position: relative;
+    top: -25px;
+}
+
+.arrow {
+    height: 15px;
+    left: 120%;
+    position: absolute;
+    top: 35px;
+    width: 15px;
+}
+
+.arrow-green {
+    background-image: url("images/arrow-green.png");
+    background-size: contain;
+}
+
+.arrow-grey {
+    background-image: url("images/arrow-grey.png");
+    background-size: contain;
+}
+/*@media (max-width: 850px) {
+     
+    .icon-green {
+      font-size: 40px;
+    }
+
+    .icon-grey {
+      font-size: 40px;
+    }
+
+    .tracker .tracker-bar {
+        top: 40px;
+    }
+
+    .infograph-label {
+        left: 10px;
+        top: 40px;
+        width: 80px;
+    }
+}*/
+
+@media (max-width: 700px) {
+
+    .tracker .footprint {
+        position: static;
+     }
+
+    .infograph-label {
+        height: 50px;
+        top: 12px; 
+    }
+
+    .icon-green {
+      font-size: 30px;
+    }
+
+    .icon-grey {
+      font-size: 30px;
+    }
+
+    .infograph-label {
+        top: 10px;
+    }
+
+    .icon-red {
+        font-size: 20px;
+        left: -65px;
+        top: -15px;
+    }
+    .arrow {
+        display: none;
+    }
+
+    .infograph-label {
+        top: 5px;
+    }
+    .infograph-label {
+        height: 60px;
+    }
+    .infograph-label {
+        font-size: 14px;
+        left: -20px;
+        width: 100px;
+    }
+    .tracker-box {
+        float: right;
+        width: 34%;
+    }
+    .tracker .tracker-bar {
+        display: none;
+    }
+}
+
+
+
