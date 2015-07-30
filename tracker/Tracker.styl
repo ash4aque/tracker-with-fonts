@@ -1,0 +1,108 @@
+.tracker-container {
+  width: 94%;
+}
+
+.tracker {
+  margin: 0 auto;
+  padding: 20px 20px 24px 0;
+}
+
+//TODO #ddd if approved by UX
+
+.tracker-bar {
+  position: relative;
+  height: 2px;
+  background: #aaa;
+}
+  
+.tracker-progress {
+  position: absolute;
+  width: 0;
+  height: 2px;
+  background: #aaa;
+}
+  
+.tracker-progress-first {
+  width: 33%;
+}
+  
+.tracker-progress-second {
+  width: 66%;
+}
+  
+.tracker-progress-third {
+  width: 100%;
+}
+  
+.tracker-footprints {
+  position: relative;
+  margin: -20px 0 0;
+  padding: 0;
+  
+  .footprints-item-first {
+    left: 0;
+  }
+
+  .footprints-item-second {
+    left: 33%;
+  }
+
+  .footprints-item-third {
+    left: 66%;
+  }
+
+  .footprints-item-last {
+    left: 100%;
+  }
+  
+}
+
+.tracker-footprint {
+  position: absolute;
+}
+    
+.tracker-point {
+  position: absolute;
+  
+  width: 16px;
+  height: 16px;
+  margin: 10px auto;
+  border: 1px solid #aaa;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #aaa;
+  
+  background-color: #9acd32;
+  color: #fff;
+  text-align: center;
+}
+  
+.tracker-label {
+  position: relative;
+  left: -40px;
+  top: 50px;
+  
+  display: block;
+  width: 100px;
+  
+  color: #797979;
+  text-align: center;
+}
+  
+.tracker-footprint.active {
+  .tracker-point {
+    width: 40px;
+    height: 40px;
+    margin: 0 -10px;
+    background-color: #9acd32;
+  }
+  
+  .tracker-label {
+    color: #000;
+    font-weight: bold;
+  }
+  
+}
+  
+.tracker-footprint.active ~ .tracker-footprint .tracker-point {
+  background-color: #fff;
+}

@@ -1,0 +1,212 @@
+<html>
+<head>
+<title></title>
+
+<style>
+
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-size: 14px;
+    text-align: center;
+}
+.inliner {
+    height: 100%;
+}
+.inliner, .inliner + .inlined {
+    display: inline-block;
+    vertical-align: middle;
+}
+.inlined {
+    width: 90%;
+}
+.progress-meter {
+    margin: 20px auto 40px;
+    padding: 40px;
+}
+.progress-meter {
+    counter-reset: point;
+}
+.progress-meter .progress-point:before {
+    background-color: #FFFFFF;
+    border: 4px solid #AAAAAA;
+    border-radius: 24px;
+    box-shadow: 0 0 0 2px #FFFFFF;
+    color: #FFFFFF;
+    content: "✓";
+    display: block;
+    margin: 0 auto 12px;
+    text-align: center;
+    transition: all 1s ease 0s;
+    width: 24px;
+}
+.progress-meter .track {
+    background: none repeat scroll 0 0 #DDDDDD;
+    height: 4px;
+    position: relative;
+}
+.progress-meter .progress {
+    background: none repeat scroll 0 0 #FF0000;
+    display: block;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    transition: width 1s ease 0s;
+    width: 0;
+}
+.progress-meter .progress-points {
+    list-style: none outside none;
+    margin: -14px 0 0;
+    padding: 0;
+    position: relative;
+}
+.progress-meter .progress-points .progress-point:nth-child(1) {
+    left: 0;
+}
+.progress-meter .progress-points .progress-point:nth-child(2) {
+    left: 25%;
+}
+.progress-meter .progress-points .progress-point:nth-child(3) {
+    left: 50%;
+}
+.progress-meter .progress-points .progress-point:nth-child(4) {
+    left: 75%;
+}
+.progress-meter .progress-points .progress-point:nth-child(5) {
+    left: 100%;
+}
+.progress-meter .progress-point {
+    color: #999999;
+    cursor: pointer;
+    display: block;
+    margin-left: -50px;
+    position: absolute;
+    text-align: center;
+    transition: color 1s ease 0s;
+    width: 100px;
+}
+.progress-meter .progress-point.completed, .progress-meter .progress-point.active {
+    color: #777777;
+}
+.progress-meter .progress-point.completed:before {
+    background-color: #777777;
+    border-color: #777777;
+}
+.progress-meter .progress-point.active:before {
+    border-color: #777777;
+    transition-delay: 1s;
+}
+.progress-meter .progress-point .label:before {
+    content: counter(point, decimal) ". ";
+    counter-increment: point;
+}
+.controls {
+    font-size: 12px;
+    text-align: center;
+}
+.trigger {
+    background-image: linear-gradient(#BBBBBB, #959595);
+    border: medium none;
+    border-radius: 3px;
+    color: #626262;
+    padding: 6px 8px;
+    text-shadow: 0 1px 1px rgba(251, 251, 251, 0.75);
+}
+
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<body>
+<body>
+<div class="inliner"></div>
+<div class="inlined">
+  
+  <!-- Start component -->
+  <div class="progress-meter">
+    <div class="track">
+      <span class="progress" style="width: 50%;"></span>
+    </div>
+    <ol data-current="4" class="progress-points">
+      <li class="progress-point completed">
+        <span class="label">Lorem ipsum</span>
+      </li>
+      <li class="progress-point completed">
+        <span class="label">Aliquam tincidunt</span>
+      </li>
+      <li class="progress-point active">
+        <span class="label">Vestibulum auctor</span>
+      </li>
+      <li class="progress-point">
+        <span class="label">Lorem ipsum</span>
+      </li>
+      <li class="progress-point">
+        <span class="label">Aliquam tincidunt</span>
+      </li>
+    </ol>
+  </div>
+  <!-- End component -->
+  
+  <!-- Demo only -->
+  <div class="controls">
+    <button class="trigger">Toggle progress</button>
+    <p>Click any point to navigate to it directly</p>
+  </div>
+
+</div>
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+<script src="http://s.codepen.io/assets/libs/empty.js"></script>
+
+<script>(function() {  
+  var $point_arr, $points, $progress, $trigger, active, max, tracker, val;
+
+  $trigger   = $('.trigger').first();
+  $points    = $('.progress-points').first();
+  $point_arr = $('.progress-point');
+  $progress  = $('.progress').first();
+
+  val     = +$points.data('current') - 1;
+  max     = $point_arr.length - 1;
+  tracker = active = 0;
+
+  function activate(index) {
+    if (index !== active) {
+      active       = index;
+      var $_active = $point_arr.eq(active)
+      
+      $point_arr
+        .removeClass('completed active')
+        .slice(0, active).addClass('completed')
+      
+      $_active.addClass('active');
+      
+      return $progress.css('width', (index / max * 100) + "%");
+    }
+  };
+
+  $points.on('click', 'li', function(event) {
+    var _index;
+    _index  = $point_arr.index(this);
+    tracker = _index === 0 ? 1 : _index === val ? 0 : tracker;
+    
+    return activate(_index);
+  });
+
+  $trigger.on('click', function() {
+    return activate(tracker++ % 2 === 0 ? 0 : val);
+  });
+
+  setTimeout((function() {
+    return activate(val);
+  }), 1000);
+
+}).call(this);
+</script>
+</body>
+
+</body>
+</html>

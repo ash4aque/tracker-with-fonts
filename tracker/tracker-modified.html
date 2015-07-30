@@ -1,0 +1,132 @@
+<html>
+<head>
+<title></title>
+
+<style>
+/*
+*, *:before, *:after {
+    -moz-box-sizing: border-box;
+}
+html, body {
+    height: 100%;
+}
+body {
+    font-size: 14px;
+    text-align: center;
+}
+.inliner {
+    height: 100%;
+}
+.inliner, .inliner + .inlined {
+    display: inline-block;
+    vertical-align: middle;
+}*/
+.tracker-box {
+    width: 90%;
+}
+.tracker {
+    margin: 20px auto 40px;
+    padding: 40px;
+}
+.tracker .footprint:before {
+    background-color: #FFFFFF;
+    border: 10px solid #FFFFFF;
+    border-radius: 15px;
+    box-shadow: 0 0 0 2px #AAAAAA;
+    color: #FFFFFF;
+    content: " ";
+    display: block;
+    margin: 0 auto 12px;
+    text-align: center;
+    width: 1px;
+}
+.tracker .tracker-bar {
+    background: none repeat scroll 0 0 #DDDDDD;
+    height: 4px;
+    position: relative;
+}
+
+.tracker .progress {
+    background: none repeat scroll 0 0 #AAAAAA;
+    display: block;
+    height: 4px;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 0;
+}
+.tracker .progressed-first {
+    width: 33%;
+}
+.tracker .progressed-second {
+    width: 66%;
+}
+.tracker .progressed-third {
+    width: 100%;
+}
+.tracker .footprints {
+    margin: -14px 0 0;
+    padding: 0;
+    position: relative;
+}
+.tracker .footprints .footprint:nth-child(1) {
+    left: 0;
+}
+.tracker .footprints .footprint:nth-child(2) {
+    left: 33%;
+}
+.tracker .footprints .footprint:nth-child(3) {
+    left: 66%;
+}
+.tracker .footprints .footprint:nth-child(4) {
+    left: 100%;
+}
+
+.tracker .footprint {
+    color: #999999;
+    cursor: pointer;
+    display: block;
+    margin-left: -50px;
+    position: absolute;
+    text-align: center;
+    width: 100px;
+}
+.tracker .footprint.completed, .tracker .footprint.active {
+    color: #777777;
+}
+.tracker .footprint.completed:before {
+    background-color: #9ACD32;
+    border-color: #9ACD32;
+}
+.tracker .footprint.active:before {
+    border-color: #9ACD32;
+}
+
+</style>
+</head>
+<body>
+<div class="tracker-box">
+  <div class="tracker">
+    <div class="tracker-bar">
+      <span class="progressed-first progress"></span>
+    </div>
+    <div class="footprints">
+      <div class="footprint completed">
+        <span class="label">Order placed</span>
+      </div>
+      <div class="footprint completed">
+        <span class="label">Processing</span>
+      </div>
+      <div class="footprint active">
+        <span class="label">Shipped</span>
+      </div>
+      <div class="footprint">
+        <span class="label">Delivered</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+</body>
+</html>

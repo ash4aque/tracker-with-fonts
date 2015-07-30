@@ -1,0 +1,117 @@
+<html>
+<head>
+<title></title>
+
+<style>
+
+.progress-tracker {
+    list-style: none;
+    list-style-image: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+    float: left;
+    white-space: nowrap;
+}
+
+.progress-tracker li {
+    float: left;
+    margin-right: 50px;
+    text-align: center;
+    position: relative;
+}
+
+.progress-tracker .step-name {
+    color: #797979;
+    display: table-cell;
+    height: 44px;
+    text-align: center;
+    vertical-align: bottom;
+    width: 100px;
+}
+
+.progress-tracker .current .step-name {
+    color: #000;
+    font-weight: bold;
+    display: table-cell;
+    height: 20px;
+    text-align: center;
+    vertical-align: bottom;
+    width: 100px;
+}
+
+.progress-tracker .step-status {
+    border: 2px solid #797979;
+    border-radius: 50%;
+    display: inline-block;
+    height: 16px;
+    margin-top: 10px;
+    width: 16px;
+}
+
+.progress-tracker .step-status:after {
+    background: none repeat scroll 0 0 #797979;
+    bottom: 56px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 58px;
+    position: absolute;
+    width: 134%;
+}
+
+.progress-tracker li:last-of-type .step-status:after {
+    display: none;
+}
+
+.progress-tracker .active-step .step-status {
+    background-color: yellowgreen;
+}
+.current .step-status{
+    height: 40px;
+    position: relative;
+    top: -12px;
+    width: 40px;
+}
+
+.current .step-status:after {
+    background: none repeat scroll 0 0 #797979;
+    bottom: 17px;
+    content: "";
+    display: block;
+    height: 2px;
+    left: 42px;
+    position: absolute;
+    width: 300%;
+}
+.progress-tracker-box {
+    border: 1px solid #797979;
+    height: 120px;
+    width: 600px;
+}
+</style>
+</head>
+<body>
+<div class="progress-tracker-box">
+  <ol class="progress-tracker clearfix">
+    <li class="active-step">
+        <span class="step-status"></span>
+        <span class="step-name">Order placed</span>
+    </li>
+    <li class="active-step ">
+        <span class="step-status"></span>
+        <span class="step-name">Processing</span>
+    </li>
+    <li class="active-step current">
+        <span class="step-status"></span>
+        <span class="step-name">Shipped</span>
+    </li>
+    <li>
+        <span class="step-status "></span>
+        <span class="step-name">Delivered</span>
+    </li>
+  </ol>
+</div>
+
+</body>
+</html>
